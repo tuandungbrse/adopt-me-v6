@@ -2,6 +2,7 @@ import { render } from 'react-dom';
 
 import Pet from './Pet';
 import SearchParams from './SearchParams';
+import { StrictMode } from 'react';
 
 const App = (props) => {
   console.log('render in App: ' + JSON.stringify(props));
@@ -13,4 +14,9 @@ const App = (props) => {
   );
 };
 
-render(<App />, document.getElementById('root'));
+render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById('root')
+);
