@@ -1,7 +1,7 @@
 import React from 'react';
 
 function SearchParams(props) {
-  console.log('render in search-params: ' + props);
+  console.log('render in search-params: ' + JSON.stringify(props));
 
   const [location, setLocation] = React.useState('Seattle, WA');
 

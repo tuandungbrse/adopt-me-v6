@@ -1,5 +1,5 @@
 const Pet = (props) => {
-  console.log('render in pet: ' + props);
+  console.log('render in pet: ' + JSON.stringify(props));
   return (
     <div>
       <h2>{props.name}</h2>
