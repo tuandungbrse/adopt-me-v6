@@ -3,20 +3,35 @@ import { render } from 'react-dom';
 import Pet from './Pet';
 import SearchParams from './SearchParams';
 import { StrictMode } from 'react';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import Details from './Details';
 
 const App = (props) => {
   console.log('render in App: ' + JSON.stringify(props));
   return (
     <div>
-      <h1>Adopt Me!</h1>
-      <SearchParams />
+      <header>
+        <Link to="/">
+          <h1>Adopt Me!</h1>
+        </Link>
+      </header>
+      <Switch>
+        <Route exact path="/details/:id">
+          <Details />
+        </Route>
+        <Route exact path="/">
+          <SearchParams />
+        </Route>
+      </Switch>
     </div>
   );
 };
 
 render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
   document.getElementById('root')
 );
