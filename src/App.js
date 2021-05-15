@@ -1,10 +1,10 @@
 import { render } from 'react-dom';
 
-import Pet from './Pet';
 import SearchParams from './SearchParams';
 import { StrictMode } from 'react';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Details from './Details';
+import ErrorBoundary from './ErrorBoundary';
 
 const App = (props) => {
   console.log('render in App: ' + JSON.stringify(props));
@@ -17,7 +17,9 @@ const App = (props) => {
       </header>
       <Switch>
         <Route exact path="/details/:id">
-          <Details />
+          <ErrorBoundary>
+            <Details />
+          </ErrorBoundary>
         </Route>
         <Route exact path="/">
           <SearchParams />
