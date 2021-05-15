@@ -1,5 +1,6 @@
 import React from 'react';
 import Pet from './Pet';
+import useBreedList from './hooks/useBreedList';
 const ANIMALS = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
 
 function SearchParams(props) {
@@ -10,7 +11,7 @@ function SearchParams(props) {
   const [location, setLocation] = React.useState('Seattle, WA');
   const [animal, updateAnimal] = React.useState('');
   const [breed, updateBreed] = React.useState('');
-  const breeds = [];
+  const [breeds] = useBreedList(animal);
 
   React.useEffect(() => {
     requestPets();
