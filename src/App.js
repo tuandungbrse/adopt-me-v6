@@ -12,7 +12,13 @@ const App = (props) => {
   const theme = React.useState('darkblue');
   return (
     <ThemeContext.Provider value={theme}>
-      <div>
+      <div
+        className="p-0 m-0"
+        style={{
+          background:
+            'url(http://pets-images.dev-apis.com/pets/wallpaperA.jpg)',
+        }}
+      >
         <header>
           <Link to="/">
             <h1>Adopt Me!</h1>
